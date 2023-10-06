@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LoL Champs Mastery</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/" method="POST" class="form">
+            <input class="textInput" type="text" name="summoner">
+            <input class="sendButton" type="submit">
+        </form>
+
+        <% if(locals.data) { %>
+
+            <% for(let i = 0; i < data.length; i++) { %>
+                <div class="champContainer">
+                    <div class="image-container">
+                        <img class ="imgChamp img" src="<%= "http://ddragon.leagueoflegends.com/cdn/13.19.1/img/champion/" + data[i].champName + ".png"%>">
+                    </div>
+                    <div class="image-overlay">
+                        <img class="imgMas img" src="<%= "/images/Champion_Mastery_Level_" + data[i].champLv + "_Square.webp" %>">
+                    </div>
+                    <h1> <%= data[i].champName %></h1>
+                
+                </div>
+            <% } %>    
+        <% } %>
+    </div>
+
+
+</body>
+
+</html>
