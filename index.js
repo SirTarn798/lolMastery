@@ -8,7 +8,7 @@ const app = express();
 const getID_URL = "https://th2.api.riotgames.com/lol/summoner/v4/summoners/by-name/"
 const getTopChamps_URL = "https://th2.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/"
 
-const API_KEY = "RGAPI-c5fb03a8-7e79-4fff-aed8-d6e8fa3c9f8b";
+const API_KEY = "RGAPI-d77df385-f33e-474f-8f49-a3365b5a8100";
 const apiAdd = "?api_key=" + API_KEY;
 
 app.use(express.static("public"));
@@ -26,6 +26,7 @@ async function getTopChamps(id) {
     let topChamps = [];
     const response = await axios.get(getTopChamps_URL + id + "/top/" + apiAdd);
     const result = response.data;
+    console.log(result)
     for (let item of result) {
         const champ = {
             champId: item.championId,
